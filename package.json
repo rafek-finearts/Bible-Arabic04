@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://rafek-finearts.github.io/Arabic-bible04/",
+  "homepage": "https://rafek-finearts.github.io/Bible-Arabic04/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
