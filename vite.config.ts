@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: '/Bible-Arabic04/',
+  base: '/Bible-Arabic04/', // Ensure this matches your GitHub repo name
   plugins: [
     react(),
     VitePWA({
@@ -40,7 +40,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+                maxAgeSeconds: 60 * 60 * 24 * 365 // Cache for one year
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -51,7 +51,13 @@ export default defineConfig({
       }
     })
   ],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'index.js', // Fixed name for JS entry file
+        chunkFileNames: '[name].js', // Fixed name for other chunks
+        assetFileNames: '[name][extname]' // Fixed name for assets
+      }
+    }
+  }
 });
